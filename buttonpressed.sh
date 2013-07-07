@@ -11,7 +11,7 @@ DATE=`date +"%s"`
 HOME="/home/pi/scan/"
 HOMEBASE="/home/pi/scan/scan$DATE"
 
-TMPFILE="$HOMEBASE.tiff"
+TMPFILE_TIFF="$HOMEBASE.tiff"
 TMPFILE_PDF="$HOMEBASE.pdf"
 TMPFILE_PS="$HOMEBASE.ps"
 TMPFILE_PNM="$HOMEBASE.pnm"
@@ -22,38 +22,43 @@ LOCKFILE="$HOME/copy.lock"
 # by Lutz Müller <lutz@topfrose.de>.
 
 if ! lockfile-create --retry 2 $LOCKFILE; then
-	toilet --filter border --gay "Error: scanning already in progress for $2"  2>/dev/null 
+	#toilet --filter border --gay "Error: scanning already in progress for $2"  2>/dev/null 
+  echo "Error: scanning already in progress for $2"
   exit
 fi
-rm -f $TMPFILE
-rm -f $TMPFILE_PDF
-rm -f $TMPFILE_PS
+#rm -f $TMPFILE
+#rm -f $TMPFILE_PDF
+#rm -f $TMPFILE_PS
 
 case $1 in
 	1)
 		toilet --filter border --gay "$2 button 1 pressed"  2>/dev/null 
 		
 		if [ -f $LOCKFILE ]; then
-		  echo "error! (another scanning operation is currently in progress?)" | festival --tts
+		  echo "error! (another scanning operation is currently in progress?)" 
+		  #| festival --tts
 		  exit
 		fi
 		touch $LOCKFILE
-		rm -f $TMPFILE
-		echo "body copy. body copy. body copy." | festival --tts
+		#rm -f $TMPFILE
+		echo "body copy. body copy. body copy." 
+		#| festival --tts
 		# scanimage --resolution 300 --device-name $2 --mode Color -x 210 -y 297 | pnmtops -width=8.27 -height=11.69 > $TMPFILE_PS
 		# ps2pdf $TMPFILE_PS $TMPFILE_PDF
 		
 
-		scanimage –resolution 100 > $TMPFILE_PNM
-		convert $TMPFILE_JPG
+		scanimage --format=tiff -x 215 -y 297 > $TMPFILE_TIFF
+		convert $TMPFILE_TIFF $TMPFILE_JPG
 
 		if [ $? != 0 ]; then
-			echo "body body body scan failed. failed. failed." | festival --tts
+			echo "body body body scan failed. failed. failed." 
+			#| festival --tts
 			rm $LOCKFILE
 			exit
 		fi
 
-		echo "body body body scan complete. complete. complete." | festival --tts
+		echo "body body body scan complete. complete. complete." 
+		#| festival --tts
 		rm -f $LOCKFILE
 
 		# This example turns your scanner+printer into a photocopier.
@@ -107,28 +112,19 @@ case $1 in
                 # lockfile-remove $LOCKFILE
 		;;
 	2)
-		if toilet --filter border --gay "$2 button 2 pressed"  2>/dev/null ; then
-		else
-			echo "$2 button 2 pressed"
-		fi
+		echo "$2 button 2 pressed"
 		
 		# flegita
 		;;
 	3)
 		
-		if toilet --filter border --gay "$2 button 3 pressed"  2>/dev/null ; then
-		else
-			echo "$2 button 3 pressed"
-		fi
+		echo "$2 button 3 pressed"
 		# scanimage --resolution 300 --device-name $2 --mode Color -x 210 -y 297 | pnmtops -width=8.27 -height=11.69 > $TMPFILE_PS
 		# ps2pdf $TMPFILE_PS $TMPFILE_PDF
 		# evince $TMPFILE_PDF
 		;;
 	4)
-		if toilet --filter border --gay "$2 button 4 pressed"  2>/dev/null ; then
-		else
-			echo "$2 button 4 pressed"
-		fi
+		echo "$2 button 4 pressed"
                 # scanimage --resolution 300 --device-name $2 --mode Color -x 210 -y 297 | pnmtops -width=8.27 -height=11.69 > $TMPFILE_PS
 		# ps2pdf $TMPFILE_PS $TMPFILE_PDF
                 # nautilus-sendto $TMPFILE_PDF
