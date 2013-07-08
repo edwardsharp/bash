@@ -64,7 +64,7 @@ else
     echo "skipping..."
 fi
 
-PACKAGES="vim unclutter x11vnc"
+PACKAGES="vim unclutter locate"
 if ask "apt-get install $PACKAGES?" N; then
     echo "apt-get install"
 	
