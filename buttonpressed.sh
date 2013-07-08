@@ -21,9 +21,14 @@ LOCKFILE="$HOME/copy.lock"
 # Lock file handling and GNOME examples for buttons 2, 3, 4 below contributed
 # by Lutz Müller <lutz@topfrose.de>.
 
+function out{
+	#toilet --filter border --gay "$2 button 1 pressed"  2>/dev/null 
+	echo $1
+}
+
 if ! lockfile-create --retry 2 $LOCKFILE; then
 	#toilet --filter border --gay "Error: scanning already in progress for $2"  2>/dev/null 
-  echo "Error: scanning already in progress for $2"
+  out "Error: scanning already in progress for $2"
   exit
 fi
 #rm -f $TMPFILE
@@ -32,16 +37,16 @@ fi
 
 case $1 in
 	1)
-		toilet --filter border --gay "$2 button 1 pressed"  2>/dev/null 
+		out "$2 button 1 pressed"
 		
 		if [ -f $LOCKFILE ]; then
-		  echo "error! (another scanning operation is currently in progress?)" 
+		  out "error! (another scanning operation is currently in progress?)" 
 		  #| festival --tts
 		  exit
 		fi
 		touch $LOCKFILE
 		#rm -f $TMPFILE
-		echo "body copy. body copy. body copy." 
+		out "body copy. body copy. body copy." 
 		#| festival --tts
 		# scanimage --resolution 300 --device-name $2 --mode Color -x 210 -y 297 | pnmtops -width=8.27 -height=11.69 > $TMPFILE_PS
 		# ps2pdf $TMPFILE_PS $TMPFILE_PDF
@@ -51,13 +56,13 @@ case $1 in
 		convert $TMPFILE_TIFF $TMPFILE_JPG
 
 		if [ $? != 0 ]; then
-			echo "body body body scan failed. failed. failed." 
+			out "body body body scan failed. failed. failed." 
 			#| festival --tts
 			rm $LOCKFILE
 			exit
 		fi
 
-		echo "body body body scan complete. complete. complete." 
+		out "body body body scan complete. complete. complete." 
 		#| festival --tts
 		rm -f $LOCKFILE
 
@@ -112,19 +117,19 @@ case $1 in
                 # lockfile-remove $LOCKFILE
 		;;
 	2)
-		echo "$2 button 2 pressed"
+		out "$2 button 2 pressed"
 		
 		# flegita
 		;;
 	3)
 		
-		echo "$2 button 3 pressed"
+		out "$2 button 3 pressed"
 		# scanimage --resolution 300 --device-name $2 --mode Color -x 210 -y 297 | pnmtops -width=8.27 -height=11.69 > $TMPFILE_PS
 		# ps2pdf $TMPFILE_PS $TMPFILE_PDF
 		# evince $TMPFILE_PDF
 		;;
 	4)
-		echo "$2 button 4 pressed"
+		out "$2 button 4 pressed"
                 # scanimage --resolution 300 --device-name $2 --mode Color -x 210 -y 297 | pnmtops -width=8.27 -height=11.69 > $TMPFILE_PS
 		# ps2pdf $TMPFILE_PS $TMPFILE_PDF
                 # nautilus-sendto $TMPFILE_PDF
