@@ -108,7 +108,7 @@ while true; do
 			violet
 		fi
 		if (( 8 <= $DATE && $DATE <= 9 )); then 
-			out
+			red
 		fi
 		if (( 10 <= $DATE && $DATE <= 11 )); then 
 			blue
@@ -117,7 +117,7 @@ while true; do
 			violet
 		fi
 		if (( 14 <= $DATE && $DATE <= 15 )); then 
-			out
+			red
 		fi
 		if (( 16 <= $DATE && $DATE <= 17 )); then 
 			blue
@@ -126,7 +126,7 @@ while true; do
 			violet
 		fi
 		if (( 20 <= $DATE && $DATE <= 21 )); then 
-			out
+			red
 		fi
 		if (( 22 <= $DATE && $DATE <= 23 )); then 
 			blue
@@ -135,16 +135,16 @@ while true; do
 			violet
 		fi
 		if (( 26 <= $DATE && $DATE <= 27 )); then 
-			out
+			red
 		fi
 		if (( 28 <= $DATE && $DATE <= 29 )); then 
-			out
+			blue
 		fi
 		if (( 30 <= $DATE && $DATE <= 31 )); then 
-			out
+			violet
 		fi
 		if (( 32 <= $DATE && $DATE <= 33 )); then 
-			out
+			red
 		fi
 		if (( 34 <= $DATE && $DATE <= 35 )); then 
 			blue

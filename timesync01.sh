@@ -10,62 +10,53 @@ while IFS= read -r 'lines[n++]'; do :; done < "$FILE"
 function fade {
 
 	for i in {235..255}; do 
-		tput setab $i; tput setaf $i
-		toilet -tf mono9 "██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██"
+		tput setab $i; tput setaf $i; toilet -tf mono9 "██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██▐▐██"
 		sleep 1
 	done
 	for i in {235..255}; do 
-		tput setab $i; tput setaf $i
-		toilet -tf mono9 "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄"
+		tput setab $i; tput setaf $i; toilet -tf mono9 "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄"
 		sleep 1
 	done
 	for i in {235..255}; do 
-		tput setab $i; tput setaf $i
-		toilet -tf mono9 "▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐█▐█▐▐▐▐▐▐▐▐▐▐▐▐▐▐█▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐█▐█▐▐▐▐▐▐▐▐▐▐▐▐▐▐█▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐█▐█▐▐▐▐▐"
+		tput setab $i; tput setaf $i; toilet -tf mono9 "▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐█▐█▐▐▐▐▐▐▐▐▐▐▐▐▐▐█▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐█▐█▐▐▐▐▐▐▐▐▐▐▐▐▐▐█▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐▐█▐█▐▐▐▐▐"
 		sleep 1
 	done
 }
 
 function out {
-	for i in {0..9}; do
-		toilet -tf mono9 "${lines[$i]}"
-		sleep 6
+	for i in {0..14}; do
+		tput setab 201; tput setaf `shuf -i 1-7 -n 1`; toilet -tf mono9 "${lines[$i]}"
+		sleep 4
 	done
 }
 
 function violet {
 
 	for i in {235..255}; do 
-		tput setab 200; tput setaf $i
-		toilet -tf mono9 "░░░░░░░░░░░  ░░░░░░░░░░  ░░░░░░░░░     ░░░░    ░░░░░    ░░░░░░░ ░░░░░░          ░░░░░░░░ ░░░░░░░       ░░░░░░░░ ░░░░░░ ░░░░░░░"
+		tput setab 200; tput setaf $i; toilet -tf mono9 "░░░░░░░░░░░  ░░░░░░░░░░  ░░░░░░░░░     ░░░░    ░░░░░    ░░░░░░░ ░░░░░░          ░░░░░░░░ ░░░░░░░       ░░░░░░░░ ░░░░░░ ░░░░░░░"
 		sleep 1
 	done
 	for i in {235..255}; do 
-		tput setab 201; tput setaf $i
-		toilet -tf mono9 "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄"
+		tput setab 201; tput setaf $i; toilet -tf mono9 "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄"
 		sleep 1
 	done
 	for i in {235..255}; do 
-		tput setab $i; tput setaf 21
-		toilet -tf mono9 "╋╋╋    ╋╋╋╋╋╋╋╋╋╋╋╋        ╋╋╋╋╋╋╋╋    ╋╋╋╋╋╋╋   ╋╋        ╋╋                      ╋╋     ╋╋ ╋    ╋"
+		tput setab $i; tput setaf 21; toilet -tf mono9 "╋╋╋    ╋╋╋╋╋╋╋╋╋╋╋╋        ╋╋╋╋╋╋╋╋    ╋╋╋╋╋╋╋   ╋╋        ╋╋                      ╋╋     ╋╋ ╋    ╋"
 		sleep 1
 	done
 }
 
 function red {
 	for i in {205..225}; do 
-		tput setab 9; tput setaf $i
-		toilet -tf mono9 "╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲    ╲╲╲╲╲╲╲╲╲╲╲     ╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲    ╲╲╲╲╲╲ ╲╲╲╲╲   ╲╲╲╲╲╲     ╲╲╲╲╲╲    ╲╲╲╲   ╲╲╲╲  ╲╲       ╲╲╲╲╲╲╲╲"
+		tput setab 9; tput setaf $i; toilet -tf mono9 "╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲    ╲╲╲╲╲╲╲╲╲╲╲     ╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲    ╲╲╲╲╲╲ ╲╲╲╲╲   ╲╲╲╲╲╲     ╲╲╲╲╲╲    ╲╲╲╲   ╲╲╲╲  ╲╲       ╲╲╲╲╲╲╲╲"
 		sleep 1
 	done
 	for i in {205..225}; do 
-		tput setab 131; tput setaf $i
-		toilet -tf mono9 "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄"
+		tput setab 131; tput setaf $i; toilet -tf mono9 "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄"
 		sleep 1
 	done
 	for i in {205..225}; do 
-		tput setab 199; tput setaf $i
-		toilet -tf mono9 "╳ ╳ ╳ ╳ ╳ ╳  ╳ ╳ ╳ ╳ ╳ ╳     ╳ ╳ ╳ ╳ ╳ ╳ ╳ ╳ ╳ ╳     ╳ ╳ ╳       ╳ ╳        ╳ ╳       ╳ ╳  ╳           ╳ ╳     ╳    ╳   ╳   ╳ "
+		tput setab 199; tput setaf $i; toilet -tf mono9 "╳ ╳ ╳ ╳ ╳ ╳  ╳ ╳ ╳ ╳ ╳ ╳     ╳ ╳ ╳ ╳ ╳ ╳ ╳ ╳ ╳ ╳     ╳ ╳ ╳       ╳ ╳        ╳ ╳       ╳ ╳  ╳           ╳ ╳     ╳    ╳   ╳   ╳ "
 		sleep 1
 	done
 	#╲¬
@@ -73,18 +64,15 @@ function red {
 
 function blue {
 	for i in {105..125}; do 
-		tput setab 5; tput setaf $i
-		toilet -tf mono9 "╲╲      ╲╲     ╲   ╲╲╲╲╲╲                    ╲╲╲╲╲    ╲╲╲╲ ╲╲╲╲╲╲╲╲    ╲╲╲╲ ╲╲╲╲╲╲╲╲╲╲╲╲"
+		tput setab 5; tput setaf $i; toilet -tf mono9 "╲╲      ╲╲     ╲   ╲╲╲╲╲╲                    ╲╲╲╲╲    ╲╲╲╲ ╲╲╲╲╲╲╲╲    ╲╲╲╲ ╲╲╲╲╲╲╲╲╲╲╲╲"
 		sleep 1
 	done
 	for i in {35..55}; do 
-		tput setab 201; tput setaf $i
-		toilet -tf mono9 "                                                                                       "
+		tput setab 201; tput setaf $i; toilet -tf mono9 "                                                                                       "
 		sleep 1
 	done
 	for i in {5..25}; do 
-		tput setab 200; tput setaf $i
-		toilet -tf mono9 "╳   ╳        ╳             ╳                         ╳   ╳    ╳ ╳        ╳   ╳   ╳   ╳ "
+		tput setab 200; tput setaf $i; toilet -tf mono9 "╳   ╳        ╳             ╳                         ╳   ╳    ╳ ╳        ╳   ╳   ╳   ╳ "
 		sleep 1
 	done
 	#╲¬
@@ -120,7 +108,7 @@ while true; do
 			out
 		fi
 		if (( 16 <= $DATE && $DATE <= 17 )); then 
-			blue
+			out
 		fi
 		if (( 18 <= $DATE && $DATE <= 19 )); then 
 			violet
@@ -147,7 +135,7 @@ while true; do
 			out
 		fi
 		if (( 34 <= $DATE && $DATE <= 35 )); then 
-			blue
+			out
 		fi
 		if (( 36 <= $DATE && $DATE <= 37 )); then 
 			violet
