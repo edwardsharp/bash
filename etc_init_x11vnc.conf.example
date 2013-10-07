@@ -1,0 +1,8 @@
+#/etc/init/x11vnc.conf
+
+#sudo x11vnc -storepasswd WHATZYRPASSWORD /etc/x11vnc/pass
+
+start on login-session-start
+script
+x11vnc -localhost -xkb -noxrecord -noxfixes -noxdamage -display :0 -rfbauth /etc/x11vnc/pass -auth /var/run/lightdm/root/:0 -ssldir /etc/x11vnc/Certs -sslverify /etc/x11vnc/CA/cacert.pem -once -bg -ncache 10 -listen localhost -o /var/log/x11vnc.log
+end script
